@@ -1,5 +1,6 @@
 import allure
-from toshl_finance_demo_test.data.user import test_user
+
+from config import config
 from toshl_finance_demo_test.pages.mobile import welcome_page, login_page, expense_page
 
 
@@ -15,11 +16,11 @@ class TestLogin:
     def test_successful_login(self, mobile_management):
         with allure.step('Login with username and password'):
             welcome_page.click_login_link()
-            login_page.login(test_user)
+            login_page.login(config.TEST_USER_EMAIL)
 
         with allure.step('Verify that user is logged in'):
             expense_page.open_side_menu()
-            expense_page.user_should_be_logged_in(test_user.name)
+            expense_page.user_should_be_logged_in(config.TEST_USER_NAME)
 
     @allure.title('Login with incorrect password')
     @allure.severity('normal')
@@ -29,7 +30,7 @@ class TestLogin:
 
         with allure.step('login with incorrect password'):
             login_page.click_login_with_email_button()
-            login_page.type_email(test_user.email)
+            login_page.type_email(config.TEST_USER_EMAIL)
             login_page.type_password('wring_password')
             login_page.submit()
 
