@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "toshl-demo"
+version = "0.1.0"
+description = "A project with test for Toshl web app and api"
+authors = ["Julia Shilkova <yulia.shilkova@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+allure-pytest = "^2.13.2"
+selene = "^2.0.0rc4"
+python-dotenv = "^1.0.0"
+pytest = "^7.4.4"
+jsonschema = "^4.21.0"
+logging = "^0.4.9.6"
+pydantic-settings = "^2.1.0"
+pydantic = "^2.5.3"
+appium-python-client = "^3.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

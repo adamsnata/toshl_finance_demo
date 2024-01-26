@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "rate": {
+              "type": "number"
+            },
+            "main_rate": {
+              "type": "number"
+            },
+            "fixed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "code",
+            "rate",
+            "main_rate",
+            "fixed"
+          ]
+        },
+        "date": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "boolean"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "amount",
+        "currency",
+        "date",
+        "desc",
+        "account",
+        "category",
+        "created",
+        "modified",
+        "completed",
+        "deleted"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "rate": {
+              "type": "number"
+            },
+            "main_rate": {
+              "type": "number"
+            },
+            "fixed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "code",
+            "rate",
+            "main_rate",
+            "fixed"
+          ]
+        },
+        "date": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "boolean"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "amount",
+        "currency",
+        "date",
+        "desc",
+        "account",
+        "category",
+        "created",
+        "modified",
+        "completed",
+        "deleted"
+      ]
+    }
+  ]
+}
