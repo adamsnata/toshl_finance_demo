@@ -2,7 +2,6 @@ import allure
 
 from config import config
 from toshl_finance_demo_test.components import left_panel
-
 from toshl_finance_demo_test.pages.web import login_page
 
 
@@ -20,7 +19,6 @@ class TestLogin:
             login_page.open()
 
         with allure.step("Enter username and password and submit the form"):
-
             login_page.type_email(config.TEST_USER_EMAIL)
             login_page.type_password(config.TEST_USER_PASSWORD)
             login_page.submit()

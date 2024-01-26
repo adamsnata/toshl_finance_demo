@@ -1,8 +1,8 @@
 from datetime import datetime
+
 import allure
 import requests
 
-from config import config
 from toshl_finance_demo_test.data import category
 from toshl_finance_demo_test.utils.api_utils import reqres_session
 
@@ -19,15 +19,15 @@ class TestCreateEntry:
     def test_create_income_success(self, session, remove_all_entries):
         with allure.step("Create entry"):
             resp = reqres_session.post(url=f'/api/entries',
-                                params={"immediate_update": "true"},
-                                json={"amount": 120,
-                                      "date": datetime.now().strftime("%Y-%m-%d"),
-                                      "currency":
-                                          {"code": "GEL"
-                                           },
-                                      "account": "4346873",
-                                      "category": category.grants.id,
-                                      "tags": []})
+                                       params={"immediate_update": "true"},
+                                       json={"amount": 120,
+                                             "date": datetime.now().strftime("%Y-%m-%d"),
+                                             "currency":
+                                                 {"code": "GEL"
+                                                  },
+                                             "account": "4346873",
+                                             "category": category.grants.id,
+                                             "tags": []})
 
         with allure.step("Validate response status"):
             assert resp.status_code == requests.codes.created

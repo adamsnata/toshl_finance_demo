@@ -1,14 +1,11 @@
 import allure
 import pytest
-import requests
 
 from config import config
 from toshl_finance_demo_test.data.context import Context
 from toshl_finance_demo_test.utils import api_utils
 from toshl_finance_demo_test.utils.api import get_all_entries
 from toshl_finance_demo_test.utils.api_utils import reqres_session
-
-
 
 
 def pytest_addoption(parser):
@@ -24,13 +21,12 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="function", autouse=False)
 def session():
     with allure.step("Login to Toshl Finance"):
-
         print('Ich bin da')
         # s = requests.Session()
         # s.hooks['response'] += [attach_request_and_response_data, log_request_and_response_data_to_console]
         request = reqres_session.post(url='/oauth2/login',
-               data={"email": config.TEST_USER_EMAIL,
-                     "password": config.TEST_USER_PASSWORD})
+                                      data={"email": config.TEST_USER_EMAIL,
+                                            "password": config.TEST_USER_PASSWORD})
 
         api_utils.cookie_tu = request.cookies['tu']
         # api_utils.cookies = request.cookies

@@ -1,7 +1,6 @@
 import allure
 import pytest
 
-from config import config
 from toshl_finance_demo_test.utils.api import get_all_entries
 from toshl_finance_demo_test.utils.api_utils import reqres_session
 

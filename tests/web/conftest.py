@@ -1,11 +1,11 @@
 import os
+
 import pytest
 from dotenv import load_dotenv
 from selene.support.shared import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from config import config
 from toshl_finance_demo_test.data.context import Context
 from toshl_finance_demo_test.utils import attach, api_utils
 from toshl_finance_demo_test.utils.api import get_all_entries

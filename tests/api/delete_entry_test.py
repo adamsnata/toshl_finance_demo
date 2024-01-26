@@ -1,10 +1,10 @@
 import allure
 import requests
 
-from config import config
 from toshl_finance_demo_test.data import category
 from toshl_finance_demo_test.data.transaction import EntryType
 from toshl_finance_demo_test.utils.api import add_entry, get_all_entries
+from toshl_finance_demo_test.utils.api_utils import reqres_session
 
 
 @allure.feature('Entry API')
@@ -16,7 +16,6 @@ class TestCreateEntry:
     @allure.title('Delete entry successfully')
     @allure.severity('blocker')
     def test_delete_existing_entry(self, session, remove_all_entries):
-
         with allure.step("Create entry"):
             add_entry(session, EntryType.EXPENSE, category.education.id, 120)
             entries = get_all_entries()

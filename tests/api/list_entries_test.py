@@ -1,13 +1,13 @@
 from datetime import datetime
+
 import allure
 import jsonschema
 import requests
 
-from config import config
 from toshl_finance_demo_test.data import category
 from toshl_finance_demo_test.data.transaction import EntryType
 from toshl_finance_demo_test.utils.api import add_entry
-
+from toshl_finance_demo_test.utils.api_utils import reqres_session
 from toshl_finance_demo_test.utils.load_schema import load_schema
 
 
@@ -25,7 +25,7 @@ class TestGetEntries:
 
         with allure.step("Get entries"):
             resp = reqres_session.get(url=f'/api/entries/',
-                               params={"from": "2024-01-01", "to": datetime.now().strftime("%Y-%m-%d")})
+                                      params={"from": "2024-01-01", "to": datetime.now().strftime("%Y-%m-%d")})
             entries = resp.json()
         with allure.step("Validate response status"):
             assert resp.status_code == requests.codes.ok
@@ -49,10 +49,9 @@ class TestGetEntries:
     @allure.title('Get empty entries list')
     @allure.severity('minor')
     def test_get_entries_with_empty_response(self, session, remove_all_entries):
-
         with allure.step("Get entries"):
             resp = reqres_session.get(url=f'/api/entries/',
-                               params={"from": "2024-01-01", "to": datetime.now().strftime("%Y-%m-%d")})
+                                      params={"from": "2024-01-01", "to": datetime.now().strftime("%Y-%m-%d")})
 
         with allure.step("Validate response status"):
             assert resp.status_code == requests.codes.ok
