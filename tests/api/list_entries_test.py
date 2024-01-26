@@ -24,7 +24,7 @@ class TestGetEntries:
         add_entry(session, EntryType.EXPENSE, category.charity.id, 140)
 
         with allure.step("Get entries"):
-            resp = session.get(url=f'{config.API_URL}/api/entries/',
+            resp = reqres_session.get(url=f'/api/entries/',
                                params={"from": "2024-01-01", "to": datetime.now().strftime("%Y-%m-%d")})
             entries = resp.json()
         with allure.step("Validate response status"):
@@ -51,7 +51,7 @@ class TestGetEntries:
     def test_get_entries_with_empty_response(self, session, remove_all_entries):
 
         with allure.step("Get entries"):
-            resp = session.get(url=f'{config.API_URL}/api/entries/',
+            resp = reqres_session.get(url=f'/api/entries/',
                                params={"from": "2024-01-01", "to": datetime.now().strftime("%Y-%m-%d")})
 
         with allure.step("Validate response status"):

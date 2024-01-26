@@ -22,7 +22,7 @@ class TestCreateEntry:
             entries = get_all_entries()
 
         with allure.step("Delete entry"):
-            resp = session.delete(url=f'{config.API_URL}/api/entries/{entries[0]["id"]}')
+            resp = reqres_session.delete(url=f'/api/entries/{entries[0]["id"]}')
 
         with allure.step("Validate response status"):
             assert resp.status_code == requests.codes.no_content
@@ -35,7 +35,7 @@ class TestCreateEntry:
     def test_delete_not_existing_entry_should_fail(self, session, remove_all_entries):
         not_existing_id = "1"
         with allure.step("Delete entry"):
-            resp = session.delete(url=f'{config.API_URL}/api/entries/{not_existing_id}')
+            resp = reqres_session.delete(url=f'/api/entries/{not_existing_id}')
 
         with allure.step("Validate response status is 404"):
             assert resp.status_code == requests.codes.not_found

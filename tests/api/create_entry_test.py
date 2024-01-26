@@ -16,7 +16,7 @@ class TestCreateEntry:
     @allure.title('Create income entry')
     @allure.severity('blocker')
     # def test_create_income_success(self, session, remove_all_entries):
-    def test_create_income_success(self, session):
+    def test_create_income_success(self, session, remove_all_entries):
         with allure.step("Create entry"):
             resp = reqres_session.post(url=f'/api/entries',
                                 params={"immediate_update": "true"},
